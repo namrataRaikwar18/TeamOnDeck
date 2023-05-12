@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root{
+  --primary-color: #643FDB;
+}
 html {
   font-size: 62.5%;
 }
@@ -26,3 +29,66 @@ body {
     font-size: 70%;
   }
 }
+
+/* **********Color********* */
+
+.light_grey_color{
+  color: #A29EB6;
+}
+
+.dark_blue_color{
+  color:#1C1243;
+}
+
+.peach_color {
+  color:#FF7070;
+}
+.green_color{
+  color:#639412;
+}
+
+.pink_color{
+  color:#FF9DE9;
+
+}
+
+.skyBlue_color{
+  color:#70BAFF;
+
+}
+.checkoutButton_color{
+  color:#F45757;
+}
+
+.total_days_bg{
+  background: #89C6FF;
+  color: #356795;
+}
+
+.present_days_bg{
+  background: rgba(22, 192, 152, 0.2);
+  color: #16C098;}
+
+.absent_days_bg{
+  background: #FFB4A8;
+  color: #853123;
+}
+.half_days_bg{
+  background: #FCE3A2;
+  color: #957626;
+}
+.off_days_bg{
+  background: #A7FAFF;
+  color: #269299;
+}
+.holidays_bg{
+  background: #FF9DCC;
+  color: #923260;
+}
+
+.monthly_pattern_color{
+  background: #16C098;
+}
+
+
+
