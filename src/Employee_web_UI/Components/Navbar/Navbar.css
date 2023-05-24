@@ -1,0 +1,47 @@
+
+.navApp {
+    right: 0;
+    height: 7rem;
+    padding: 0 3rem 0 0;
+    background-color: white;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+    position: sticky;
+}
+
+.inputFields input {
+    outline: none;
+    border: none;
+}
+
+.searchBar {
+    border-radius: 5px;
+    border: 1px solid #EFF1F5;
+    background-color: var(--page-bg);
+    height: 3.5rem;
+    width: 22rem;
+    padding-left: 1rem;
+}
+
+.navProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.userName {
+    color: var(--primary-color);
+}
+
+
+@media screen and (min-width:425px) {
+    .searchBar {
+        width: 33rem;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .navApp {
+        border-left: 1px solid var(--grey-border);
+    }
+}
