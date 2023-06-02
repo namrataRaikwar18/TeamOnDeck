@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./Common_Components/Auth/Login/Login";
 import ForgotPswrd from "./Common_Components/Auth/Forgot_Pswrd/ForgotPswrd";
 import PswrdEmail from "./Common_Components/Auth/Pswrd_Email/PswrdEmail";
+import { DashBoard } from "./Employee_web_UI/Pages/DashBoard/DashBoard";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +13,7 @@ import {
 function AppRoutes() {
   const routes = useRoutes(
     [
-      {path:'/',element:<Login/>},
+      {path:'/login',element:<Login/>},
       {path:'/forgotpswrd',element:<ForgotPswrd/>},
       {path:'/pswrdemail',element:<PswrdEmail/>}
 
@@ -24,9 +25,13 @@ function App() {
   return <div className="App">
     <Router>
       <AppRoutes />
+      <DashBoard/>
     </Router>
     
   </div>;
 }
+
+
+
 
 export default App;
