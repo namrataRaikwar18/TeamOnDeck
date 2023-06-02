@@ -15,7 +15,6 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import CallIcon from "@mui/icons-material/Call";
 
-
 const Select = [
   {
     value: "Select",
@@ -53,34 +52,32 @@ export default function Login() {
             <div className="signIn">Sign In</div>
             <div className="m-t-10 ">
               <FormControl variant="standard">
-
                 <TextField
-          id="standard-select-currency-native"
-          select
-          placeholder="Select"
-          label="Login As"
-          defaultValue="Select"
-          SelectProps={{
-            native: true,
-          }}
-          className="input-w"
-          variant="standard"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-               <AccountCircle />
-              </InputAdornment>
-            ),
-          }}
-        
-        >
-           {Select.map((option) => (
-            <option key={option.value} value={option.value}>
-                <AccountCircle />
-             {option.label}
-            </option>
-          ))}
-        </TextField>
+                  id="standard-select-currency-native"
+                  select
+                  placeholder="Select"
+                  label="Login As"
+                  defaultValue="Select"
+                  SelectProps={{
+                    native: true,
+                  }}
+                  className="input-w"
+                  variant="standard"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <AccountCircle />
+                      </InputAdornment>
+                    ),
+                  }}
+                >
+                  {Select.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      <AccountCircle />
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>
               </FormControl>
             </div>
             <div className="m-t-10 ">
@@ -89,17 +86,15 @@ export default function Login() {
                   <p className="inputlabel_content">Email</p>
                 </InputLabel>
                 <Input
-                   type="email"
-                    required
-                    id="email"
-                   className="input-w"
+                  type="email"
+                  required
+                  id="email"
+                  className="input-w"
                   placeholder="Enter your email address"
-                  
                   startAdornment={
                     <InputAdornment position="start">
                       {" "}
                       <MailOutlineIcon />
-                    
                     </InputAdornment>
                   }
                 />
@@ -120,7 +115,6 @@ export default function Login() {
                     <InputAdornment position="start">
                       {" "}
                       <LockOutlinedIcon />
-                    
                       <option></option>
                     </InputAdornment>
                   }
@@ -144,12 +138,16 @@ export default function Login() {
                 &nbsp; Remerber me
               </div>
               <div className="m-l-5 forgetPswrd input_content">
-               <a href="/forgotpswrd" style={{textDecoration:"none"}}>Forget Password ?</a> 
+                <a href="/forgotpswrd" style={{ textDecoration: "none" }}>
+                  Forget Password ?
+                </a>
               </div>
             </div>
 
             <div>
-              <button className="loginBtn m-t-10 primary-color" type="submit">Login</button>
+              <button className="loginBtn m-t-10 primary-color" type="submit">
+                Login
+              </button>
             </div>
           </div>
         </div>
@@ -162,12 +160,9 @@ export default function Login() {
             </div>
 
             <div className="">
-               
               <img src={PNG.LOGINLOGO} className="img" alt="poster" />
-              
             </div>
             <div style={{ padding: "10px", marginLeft: "10px" }}>
-            
               <p className="poster-m-content">Sign in to Team on Deck</p>
               <p className="poster-content">Always happy to assist you.</p>
             </div>

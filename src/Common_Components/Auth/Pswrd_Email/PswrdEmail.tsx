@@ -7,24 +7,22 @@ export default function PswrdEmail() {
     <div className="container ">
       <div className="row j-between">
         <div className=" m-l-10">
-          <div >
+          <div>
             <img src={PNG.HEADLOGO} alt=" " />
           </div>
 
           <div className=" a-items m-l-50 m-t-20 j-center">
             <div className="m-t-80">
-
-
-            <p className="signIn">Requested to reset your password</p>
-            <h5>We have sent your request to admin for reset password </h5>
-            <h6>Vaibhav@pixoatic.com</h6>
-</div>
-            <div>
-              <button className="loginBtn m-t-10 primary-color">Back To Login</button>
+              <p className="signIn">Requested to reset your password</p>
+              <h5>We have sent your request to admin for reset password </h5>
+              <h6>Vaibhav@pixoatic.com</h6>
             </div>
-
+            <div>
+              <button className="loginBtn m-t-10 primary-color">
+                Back To Login
+              </button>
+            </div>
           </div>
-
         </div>
 
         {/* **************** */}
@@ -47,4 +45,3 @@ export default function PswrdEmail() {
     </div>
   );
 }
-

@@ -4,13 +4,12 @@
   height: 500px;
   left: 735px;
   top: 21px;
-
   background: #1c1243;
   border-radius: 15px;
 }
 
 .container {
-  background: #F5F5F5;
+  background: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,18 +17,13 @@
 }
 .row {
   padding: 15px;
-  /* border-radius: 5px; */
-  background: white;
   width: 100vw;
   display: flex;
   justify-content: center;
-  /* margin: 50px; */
   box-sizing: border-box;
-  /* height:100vh; */
 }
 
 .leftGrid {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -72,7 +66,6 @@
 }
 
 @media only screen and (max-width: 1400px) and (min-width: 600px) {
-
   .rightGrid {
     display: flex;
     justify-content: center;
@@ -80,13 +73,13 @@
     flex-direction: column;
     border-radius: 5px;
     background: #1c1243;
-}
+  }
 
-.num {
-    color:white;
+  .num {
+    color: white;
     text-align: right;
     padding: 10px;
-}
+  }
   .img {
     display: flex;
     width: 400px;
@@ -101,7 +94,6 @@
 
 .a-items {
   align-items: center;
-  
 }
 
 .j-center {
@@ -114,9 +106,9 @@
   margin-left: 20px;
 }
 @media only screen and (max-width: 1400px) and (min-width: 600px) {
-    .m-l-50 {
+  .m-l-50 {
     margin-left: 50px;
-}
+  }
 }
 
 .m-t-10 {
@@ -192,16 +184,16 @@
   color: #ffffff;
 }
 .inputlabel_content {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    color: #A29EB6;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  color: #a29eb6;
 }
 .input_content {
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 300;
-font-size: 12px;
-color: #1C1243;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  color: #1c1243;
 }
