@@ -9,7 +9,10 @@ const ProfileModal = () => {
     <Box>
       <List className={classes.profileModal}>
         <ListItem className={classes.list}>
-          <ListItemText primary="Change Password" data-testid="changePassword" />
+          <ListItemText
+            primary="Change Password"
+            data-testid="changePassword"
+          />
           <ListItemText primary="Logout" />
         </ListItem>
       </List>
@@ -29,8 +32,9 @@ const useStyles = makeStyles(() => ({
     boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1);",
     cursor: "pointer",
     border: "2px solid #ECEEF7",
+    zIndex: "1",
   },
-  
+
   list: {
     display: "flex",
     flexDirection: "column",
