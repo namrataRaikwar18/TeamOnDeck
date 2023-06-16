@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -24,7 +24,7 @@ type NavbarPropsType = {
 };
 
 const Navbar = ({ showSidebar, setShowSidebar }: NavbarPropsType) => {
-  const [profileModal, setProfileModal] = useState<Boolean>(false)
+  const [profileModal, setProfileModal] = useState<Boolean>(false);
   const classes = useStyles();
 
   return (
@@ -70,10 +70,14 @@ const Navbar = ({ showSidebar, setShowSidebar }: NavbarPropsType) => {
             ></TextField>
           </Stack>
         </Toolbar>
-        <Box className="navProfile cursorPointer" data-testid="navProfile" onClick={() => setProfileModal(!profileModal)}>
+        <Box
+          className="navProfile cursorPointer"
+          data-testid="navProfile"
+          onClick={() => setProfileModal(!profileModal)}
+        >
           <Avatar
             alt="profile"
-            src="/Assets/userProfile.jpg"
+            src=""
             sx={{
               width: { xs: 27, md: 35 },
               height: { xs: 27, md: 35 },
@@ -90,7 +94,7 @@ const Navbar = ({ showSidebar, setShowSidebar }: NavbarPropsType) => {
           </Typography>
         </Box>
       </AppBar>
-          {profileModal ? <ProfileModal /> : null}
+      {profileModal ? <ProfileModal /> : null}
     </Box>
   );
 };

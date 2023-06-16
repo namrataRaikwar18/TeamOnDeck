@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   margin: 0;
@@ -7,9 +7,9 @@
 }
 
 :root {
-  --primary-color: #643FDB;
-  --grey-border: #D9D9D9;
-  --page-bg:#F5F6FA;
+  --primary-color: #643fdb;
+  --grey-border: #d9d9d9;
+  --page-bg: #f5f6fa;
 }
 
 html {
@@ -18,22 +18,21 @@ html {
 
 body {
   font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  /* color:"#1C1243" */
 }
-
-
-
 
 /* **********Color********* */
 
 .light_grey_color {
-  color: #A29EB6;
+  color: #a29eb6;
 }
-.dark_blue_color{
-  color:#1C1243;
+
+.dark_blue_color {
+  color: #1c1243;
 }
 .peach_color {
-  color: #FF7070;
+  color: #ff7070;
 }
 
 .green_color {
@@ -41,64 +40,77 @@ body {
 }
 
 .pink_color {
-  color: #FF9DE9;
-
+  color: #ff9de9;
 }
 
 .skyBlue_color {
-  color: #70BAFF;
-
+  color: #70baff;
 }
 
 .checkoutButton_color {
-  color: #F45757;
+  color: #f45757;
 }
 
 .total_days_bg {
-  background: #89C6FF;
+  background: #89c6ff;
   color: #356795;
 }
 
 .present_days_bg {
   background: rgba(22, 192, 152, 0.2);
-  color: #16C098;
+  color: #16c098;
 }
 
 .absent_days_bg {
-  background: #FFB4A8;
+  background: #ffb4a8;
   color: #853123;
 }
 
 .half_days_bg {
-  background: #FCE3A2;
+  background: #fce3a2;
   color: #957626;
 }
 
 .off_days_bg {
-  background: #A7FAFF;
+  background: #a7faff;
   color: #269299;
 }
 
 .holidays_bg {
-  background: #FF9DCC;
+  background: #ff9dcc;
   color: #923260;
 }
 
 .monthly_pattern_color {
-  background: #16C098;
+  background: #16c098;
 }
 
 .divider {
   border: 0px solid var(--grey-border);
-  width: 100%
+  width: 100%;
 }
 
 .icon {
   font-size: 25px;
+  /* background-color: rgba(28, 18, 67, 0.61); */
 }
 
-.cursorPointer{
+.cursorPointer {
   cursor: pointer;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  opacity: 0.9;
+}
+
+.fontWeight {
+  font-weight: 600;
 }
 
 @media screen and (max-width: 425px) {
