@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Stack,
@@ -11,211 +11,194 @@ import { makeStyles } from "@mui/styles";
 import { CalendarMonthOutlined } from "@mui/icons-material";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import { theme } from "../../../theme";
-import { Navbar, Sidebar, EmployeeLeaveModal } from "../../Components";
+import { EmployeeLeaveModal } from "../../Components";
 import { useLeaveModal } from "../../Context/leaveModalContext";
+import { Container } from "../Container";
 
 const DashBoard = () => {
   const classes = useStyles();
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
   const { leaveModal, setleaveModal } = useLeaveModal();
-  // const [leaveModal, setleaveModal] = useState<boolean>(false);
 
-  var dateObj = new Date();
-  var month = dateObj.getUTCMonth() + 1;
-  var day = dateObj.getUTCDate();
-  var year = dateObj.getUTCFullYear();
-
-  const newdate = month + "/" + day + "/" + year;
-
-  // Create a new Date object with the current date
-// var currentDate = new Date();
-
-// Define the options for the date format
-// type optionsType = {
-//   day:string;
-//   month:string;
-//   year:string;
-// };
-
-// var options:optionsType = { day: 'numeric', month: 'long', year: 'numeric' };
-
-// Format the date string
-// var formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-// console.log(newdate);
-
+  const currentDate = new Date();
+  type optionsType = {
+    day: "numeric";
+    month: "long";
+    year: "numeric" | "2-digit";
+  };
+  const options: optionsType = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  
+  //*****commented code will be use later */
   return (
-    <Box className={classes.dashboardBox} data-testid="dbbox">
-      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      <Box className={classes.navPage}>
-        <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-        <Box className={classes.pagebody}>
-          <Stack className={classes.dbTop}>
-            <Box>
-              <Typography
-                variant="h5"
-                fontWeight={900}
-                className={classes.welcomeMsg}
-              >
-                Welcome Vaibhav!
-              </Typography>
-              <Typography variant="subtitle1">
-                Hello, Welcome to Team On Deck
-              </Typography>
+    // <Box className={classes.dashboardBox} data-testid="dbbox">
+    //   <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+    //   <Box className={classes.navPage}>
+    //     <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+    <Container>
+      <Box className={classes.pagebody}>
+        <Stack className={classes.dbTop}>
+          <Box>
+            <Typography
+              variant="h5"
+              fontWeight={900}
+              className={classes.welcomeMsg}
+            >
+              Welcome Vaibhav!
+            </Typography>
+            <Typography variant="subtitle1">
+              Hello, Welcome to Team On Deck
+            </Typography>
+          </Box>
+          <Box className={classes.dateTimeCheckBox}>
+            <Box className={classes.dbFeat}>
+              <CalendarMonthOutlined className="light_grey_color" />
+              {formattedDate}
             </Box>
-            <Box className={classes.dateTimeCheckBox}>
-              <Box className={classes.dbFeat}>
-                <CalendarMonthOutlined className="light_grey_color" />
-                {newdate}
-              </Box>
-              <Box className={classes.dbFeat}>
-                <AccessTimeOutlinedIcon className="light_grey_color" />
-                00:00 Hours
-              </Box>
-              <Button
-                variant="contained"
-                className={`${classes.checkInbtn} btn`}
-                data-testid="CheckInBtn"
-              >
-                Check In
-              </Button>
+            <Box className={classes.dbFeat}>
+              <AccessTimeOutlinedIcon className="light_grey_color" />
+              00:00 Hours
             </Box>
-          </Stack>
-          <Box className={classes.leaveEventNotify}>
-            <Box className={classes.leaveEvents}>
-              <Box className={classes.eventHour}>
-                <Box className={`${classes.workingHour} ${classes.hourLeave}`}>
-                  <Box>
-                    <Typography variant="subtitle2">
-                      Total Working Hours
-                    </Typography>
-                    <Typography variant="h5">15 Hours</Typography>
-                  </Box>
-                  <Typography className={classes.weeklyHour}>
-                    WEEKLY HOURS
+            <Button
+              variant="contained"
+              className={`${classes.checkInbtn} btn`}
+              data-testid="CheckInBtn"
+            >
+              Check In
+            </Button>
+          </Box>
+        </Stack>
+        <Box className={classes.leaveEventNotify}>
+          <Box className={classes.leaveEvents}>
+            <Box className={classes.eventHour}>
+              <Box className={`${classes.workingHour} ${classes.hourLeave}`}>
+                <Box>
+                  <Typography variant="subtitle2">
+                    Total Working Hours
                   </Typography>
+                  <Typography variant="h5">15 Hours</Typography>
                 </Box>
-                <Box className={`${classes.emleaves}  ${classes.hourLeave}`}>
-                  <Box className={classes.emleavesHead}>
-                    <Typography>On Leave</Typography>
-                    <Typography
-                      variant="subtitle2"
-                      className="light_grey_color cursorPointer"
-                      data-testid="employeeLeave"
-                      onClick={() => setleaveModal(true)}
-                    >
-                      5 Employees on leave
-                    </Typography>
-                  </Box>
-                  <AvatarGroup
-                    variant="square"
-                    spacing={1}
-                    sx={{ borderRadius: "0" }}
-                    className={classes.avatarGrp}
-                  >
-                    <Avatar className={classes.avatar}></Avatar>
-                    <Avatar className={classes.avatar}></Avatar>
-                    <Box className={`${classes.moreLeave} ${classes.avatar}`}>
-                      +2
-                    </Box>
-                  </AvatarGroup>
-                </Box>
+                <Typography className={classes.weeklyHour}>
+                  WEEKLY HOURS
+                </Typography>
               </Box>
-              <Box className={classes.upcomingEvents}>
-                <Box className={classes.eachupcomingEvent}>
+              <Box className={`${classes.emleaves}  ${classes.hourLeave}`}>
+                <Box className={classes.emleavesHead}>
+                  <Typography>On Leave</Typography>
                   <Typography
-                    variant="h6"
-                    className={`${classes.upcomingDates} fontWeight`}
+                    variant="subtitle2"
+                    className="light_grey_color cursorPointer"
+                    data-testid="employeeLeave"
+                    onClick={() => setleaveModal(true)}
                   >
-                    Upcoming holiday
+                    5 Employees on leave
                   </Typography>
-                  <Box className={classes.eachUpcomingdate}>
-                    <Box className={classes.dayDate}>
-                      <Avatar
-                        className={`${classes.avatar} ${classes.monthAvatar}`}
+                </Box>
+                <AvatarGroup
+                  variant="square"
+                  spacing={1}
+                  sx={{ borderRadius: "0" }}
+                  className={classes.avatarGrp}
+                >
+                  <Avatar className={classes.avatar}></Avatar>
+                  <Avatar className={classes.avatar}></Avatar>
+                  <Box className={`${classes.moreLeave} ${classes.avatar}`}>
+                    +2
+                  </Box>
+                </AvatarGroup>
+              </Box>
+            </Box>
+            <Box className={classes.upcomingEvents}>
+              <Box className={classes.eachupcomingEvent}>
+                <Typography
+                  variant="h6"
+                  className={`${classes.upcomingDates} fontWeight`}
+                >
+                  Upcoming holiday
+                </Typography>
+                <Box className={classes.eachUpcomingdate}>
+                  <Box className={classes.dayDate}>
+                    <Avatar
+                      className={`${classes.avatar} ${classes.monthAvatar}`}
+                    >
+                      Aug
+                    </Avatar>
+                    <Box>
+                      <Typography variant="subtitle2" className={`fontWeight`}>
+                        Independence Day
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        className={`light_grey_color`}
                       >
-                        Aug
-                      </Avatar>
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          className={`fontWeight`}
-                        >
-                          Independence Day
-                        </Typography>
-                        <Typography
-                          variant="subtitle2"
-                          className={`light_grey_color`}
-                        >
-                          Tuesday, Aug 15, 2023
-                        </Typography>
-                      </Box>
+                        Tuesday, Aug 15, 2023
+                      </Typography>
                     </Box>
-                    <Typography
-                      variant="subtitle2"
-                      className={`light_grey_color`}
-                    >
-                      120 days left
-                    </Typography>
                   </Box>
-                </Box>
-                <Box className={classes.eachupcomingEvent}>
                   <Typography
-                    variant="h6"
-                    className={`${classes.upcomingDates} fontWeight`}
+                    variant="subtitle2"
+                    className={`light_grey_color`}
                   >
-                    Upcoming Birthdays
+                    120 days left
                   </Typography>
-                  <Box className={classes.eachUpcomingdate}>
-                    <Box className={classes.dayDate}>
-                      <Avatar className={`${classes.avatar}`}></Avatar>
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          className={`fontWeight`}
-                        >
-                          Neelam Dhami
-                        </Typography>
-                        <Typography
-                          variant="subtitle2"
-                          className={`light_grey_color`}
-                        >
-                          April 15
-                        </Typography>
-                      </Box>
+                </Box>
+              </Box>
+              <Box className={classes.eachupcomingEvent}>
+                <Typography
+                  variant="h6"
+                  className={`${classes.upcomingDates} fontWeight`}
+                >
+                  Upcoming Birthdays
+                </Typography>
+                <Box className={classes.eachUpcomingdate}>
+                  <Box className={classes.dayDate}>
+                    <Avatar className={`${classes.avatar}`}></Avatar>
+                    <Box>
+                      <Typography variant="subtitle2" className={`fontWeight`}>
+                        Neelam Dhami
+                      </Typography>
+                      <Typography
+                        variant="subtitle2"
+                        className={`light_grey_color`}
+                      >
+                        April 15
+                      </Typography>
                     </Box>
-                    <Typography
-                      variant="subtitle2"
-                      className={`light_grey_color`}
-                    >
-                      7 days left
-                    </Typography>
                   </Box>
+                  <Typography
+                    variant="subtitle2"
+                    className={`light_grey_color`}
+                  >
+                    7 days left
+                  </Typography>
                 </Box>
               </Box>
             </Box>
-            <Box className={` ${classes.notificationBox}`}>
-              <Typography
-                variant="h6"
-                className={`${classes.upcomingDates} fontWeight`}
-              >
-                Notifications
-              </Typography>
-              <Box>
-                <Box className={classes.dayDate}>
-                  <Avatar className={`${classes.avatar}`}></Avatar>
-                  <Box>
-                    <Typography variant="subtitle2" className={`fontWeight`}>
-                      Lorem Ipsum
-                    </Typography>
-                    <Typography
-                      variant="subtitle2"
-                      className={`light_grey_color`}
-                    >
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Cumque, modi necessitatibus
-                    </Typography>
-                  </Box>
+          </Box>
+          <Box className={` ${classes.notificationBox}`}>
+            <Typography
+              variant="h6"
+              className={`${classes.upcomingDates} fontWeight`}
+            >
+              Notifications
+            </Typography>
+            <Box>
+              <Box className={classes.dayDate}>
+                <Avatar className={`${classes.avatar}`}></Avatar>
+                <Box>
+                  <Typography variant="subtitle2" className={`fontWeight`}>
+                    Lorem Ipsum
+                  </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    className={`light_grey_color`}
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Cumque, modi necessitatibus
+                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -223,7 +206,9 @@ const DashBoard = () => {
         </Box>
       </Box>
       {leaveModal ? <EmployeeLeaveModal /> : null}
-    </Box>
+    </Container>
+    //</Box>
+    // </Box>
   );
 };
 
@@ -248,7 +233,6 @@ export const useStyles = makeStyles(() => ({
     gap: "5px",
     alignItems: "center",
     backgroundColor: "white",
-    width: "14rem",
     height: "4.2rem",
     padding: "1rem",
     borderRadius: "5px",
