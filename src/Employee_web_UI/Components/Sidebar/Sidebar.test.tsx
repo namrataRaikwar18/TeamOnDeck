@@ -1,9 +1,13 @@
-import { getByText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Sidebar } from "./Sidebar";
-import { SetStateAction } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 beforeEach(() => {
-  render(<Sidebar showSidebar={false} setShowSidebar={() => {}} />);
+  render(
+    <BrowserRouter>
+      <Sidebar showSidebar={false} setShowSidebar={() => {}} />
+    </BrowserRouter>
+  );
 });
 
 describe("sidebar testing", () => {
@@ -22,5 +26,4 @@ describe("sidebar testing", () => {
     expect(leaves).toBeInTheDocument();
     expect(profile).toBeInTheDocument();
   });
-  
 });
