@@ -5,6 +5,7 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import LaunchOutlinedIcon from "@mui/icons-material/LaunchOutlined";
 import { Box } from "@mui/material";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+import { NavLink } from "react-router-dom";
 
 type SidebarPropsType = {
   showSidebar: boolean;
@@ -31,22 +32,50 @@ const Sidebar = ({ showSidebar, setShowSidebar }: SidebarPropsType) => {
               </div>
             </div>
             <ul className="sidebarList light_grey_color">
-              <li className="eachSidebarList">
-                <DashboardOutlinedIcon />
-                Dashboard
-              </li>
-              <li className="eachSidebarList">
-                <CalendarMonthOutlinedIcon />
-                Attendance
-              </li>
-              <li className="eachSidebarList">
-                <LaunchOutlinedIcon />
-                Leaves
-              </li>
-              <li className="eachSidebarList">
-                <AccountBoxOutlinedIcon />
-                Profile
-              </li>
+              <NavLink
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive ? "active" : "inactive fontWeight light_grey_color"
+                }
+                to="/"
+              >
+                <li className="eachSidebarList">
+                  <DashboardOutlinedIcon />
+                  Dashboard
+                </li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive ? "active" : "inactive fontWeight light_grey_color"
+                }
+                to=""
+              >
+                <li className="eachSidebarList">
+                  <CalendarMonthOutlinedIcon />
+                  Attendance
+                </li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive ? "active" : "inactive fontWeight light_grey_color"
+                }
+                to=""
+              >
+                <li className="eachSidebarList">
+                  <LaunchOutlinedIcon />
+                  Leaves
+                </li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }: { isActive: boolean }) =>
+                  isActive ? "active" : "inactive fontWeight light_grey_color"
+                }
+                to="/profile"
+              >
+                <li className="eachSidebarList" data-tesid="profileId">
+                  <AccountBoxOutlinedIcon />
+                  Profile
+                </li>
+              </NavLink>
             </ul>
           </div>
         </div>

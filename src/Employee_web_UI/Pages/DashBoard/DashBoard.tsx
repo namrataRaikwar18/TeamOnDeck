@@ -11,15 +11,14 @@ import { makeStyles } from "@mui/styles";
 import { CalendarMonthOutlined } from "@mui/icons-material";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import { theme } from "../../../theme";
-import { EmployeeLeaveModal } from "../../Components";
 import { useLeaveModal } from "../../Context/leaveModalContext";
 import { Container } from "../Container";
+import { useLocation } from "react-router-dom";
 
-const DashBoard = () => {
-  const classes = useStyles();
-  const { leaveModal, setleaveModal } = useLeaveModal();
-
+const CheckinCheckoutFeat = () => {
+  const location = useLocation();
   const currentDate = new Date();
+  const classes = useStyles();
   type optionsType = {
     day: "numeric";
     month: "long";
@@ -31,13 +30,35 @@ const DashBoard = () => {
     year: "numeric",
   };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
-  
-  //*****commented code will be use later */
+
   return (
-    // <Box className={classes.dashboardBox} data-testid="dbbox">
-    //   <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-    //   <Box className={classes.navPage}>
-    //     <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+    <Box className={classes.dateTimeCheckBox}>
+      <Box className={classes.dbFeat}>
+        <CalendarMonthOutlined className="light_grey_color" />
+        {formattedDate}
+      </Box>
+      <Box className={classes.dbFeat}>
+        <AccessTimeOutlinedIcon className="light_grey_color" />
+        00:00 Hours
+      </Box>
+      <Button
+        variant="contained"
+        className={`${classes.checkInbtn} btn ${
+          location.pathname === "/profile" && classes.checkOutbtn
+        }`}
+        data-testid="CheckInBtn"
+      >
+        {location.pathname === "/profile" ? "Check Out" : "Check In"}
+      </Button>
+    </Box>
+  );
+};
+
+const DashBoard = () => {
+  const classes = useStyles();
+  const { leaveModal, setleaveModal } = useLeaveModal();
+
+  return (
     <Container>
       <Box className={classes.pagebody}>
         <Stack className={classes.dbTop}>
@@ -53,23 +74,7 @@ const DashBoard = () => {
               Hello, Welcome to Team On Deck
             </Typography>
           </Box>
-          <Box className={classes.dateTimeCheckBox}>
-            <Box className={classes.dbFeat}>
-              <CalendarMonthOutlined className="light_grey_color" />
-              {formattedDate}
-            </Box>
-            <Box className={classes.dbFeat}>
-              <AccessTimeOutlinedIcon className="light_grey_color" />
-              00:00 Hours
-            </Box>
-            <Button
-              variant="contained"
-              className={`${classes.checkInbtn} btn`}
-              data-testid="CheckInBtn"
-            >
-              Check In
-            </Button>
-          </Box>
+          <CheckinCheckoutFeat />
         </Stack>
         <Box className={classes.leaveEventNotify}>
           <Box className={classes.leaveEvents}>
@@ -197,7 +202,7 @@ const DashBoard = () => {
                     className={`light_grey_color`}
                   >
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Cumque, modi necessitatibus
+                    Cumque, i necessitatibus
                   </Typography>
                 </Box>
               </Box>
@@ -205,10 +210,7 @@ const DashBoard = () => {
           </Box>
         </Box>
       </Box>
-      {leaveModal ? <EmployeeLeaveModal /> : null}
     </Container>
-    //</Box>
-    // </Box>
   );
 };
 
@@ -241,6 +243,13 @@ export const useStyles = makeStyles(() => ({
     width: "14rem",
     height: "4.2rem",
   },
+  checkOutbtn: {
+    backgroundColor: "#f45757",
+    "&:hover": {
+      backgroundColor: "#f45757",
+      opacity: 0.9,
+    },
+  },
   dateTimeCheckBox: {
     display: "flex",
     alignItems: "center",
@@ -256,7 +265,7 @@ export const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   hourLeave: {
     backgroundColor: "white",
@@ -422,4 +431,4 @@ export const useStyles = makeStyles(() => ({
   },
 }));
 
-export { DashBoard };
+export { DashBoard, CheckinCheckoutFeat };

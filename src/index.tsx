@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme";
 import { LeaveMobileProvider } from "./Employee_web_UI/Context/leaveModalContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,13 +14,15 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <StyledEngineProvider injectFirst>
-        <LeaveMobileProvider>
-          <App />
-        </LeaveMobileProvider>
-      </StyledEngineProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <StyledEngineProvider injectFirst>
+          <LeaveMobileProvider>
+            <App />
+          </LeaveMobileProvider>
+        </StyledEngineProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

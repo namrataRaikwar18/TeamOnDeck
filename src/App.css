@@ -92,7 +92,6 @@ body {
 
 .icon {
   font-size: 25px;
-  /* background-color: rgba(28, 18, 67, 0.61); */
 }
 
 .cursorPointer {
@@ -102,6 +101,7 @@ body {
 .btn {
   background-color: var(--primary-color);
   font-size: 1.5rem;
+  box-shadow: none;
 }
 
 .btn:hover {
@@ -111,6 +111,14 @@ body {
 
 .fontWeight {
   font-weight: 600;
+}
+
+.primaryColor {
+  color: #643fdb;
+}
+
+a {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 425px) {
@@ -124,9 +132,3 @@ body {
     font-size: 50%;
   }
 }
-
-/* @media screen and (min-width: 1440px) {
-  html {
-    font-size: 70%;
-  }
-} */
