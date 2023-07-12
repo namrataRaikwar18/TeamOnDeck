@@ -13,7 +13,7 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
-import { useStyles, CheckinCheckoutFeat } from "../DashBoard/DashBoard";
+import { CheckinCheckoutFeat } from "../DashBoard/DashBoard";
 import "./Profile.css";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -55,7 +55,6 @@ const attendanceMonthList: AttendanceMonthType[] = [
 ];
 
 const Profile = () => {
-  const dashboardClasses = useStyles();
   const [earningDropdown, setEarningDropdown] = useState<boolean[]>(
     Array(attendanceMonthList.length).fill(false)
   );
@@ -68,8 +67,8 @@ const Profile = () => {
 
   return (
     <Container>
-      <Box className={dashboardClasses.pagebody}>
-        <Stack className={dashboardClasses.dbTop}>
+      <Box className="pagebody">
+        <Stack className="dbTop">
           <Typography variant="h5" className="fontWeight">
             Profile
           </Typography>

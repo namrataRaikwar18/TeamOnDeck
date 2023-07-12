@@ -7,18 +7,16 @@ import {
   Avatar,
   AvatarGroup,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { CalendarMonthOutlined } from "@mui/icons-material";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
-import { theme } from "../../../theme";
 import { useLeaveModal } from "../../Context/leaveModalContext";
 import { Container } from "../Container";
 import { useLocation } from "react-router-dom";
+import "./DashBoard.css";
 
 const CheckinCheckoutFeat = () => {
   const location = useLocation();
   const currentDate = new Date();
-  const classes = useStyles();
   type optionsType = {
     day: "numeric";
     month: "long";
@@ -32,19 +30,19 @@ const CheckinCheckoutFeat = () => {
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
   return (
-    <Box className={classes.dateTimeCheckBox}>
-      <Box className={classes.dbFeat}>
+    <Box className="dateTimeCheckBox">
+      <Box className="dbFeat">
         <CalendarMonthOutlined className="light_grey_color" />
         {formattedDate}
       </Box>
-      <Box className={classes.dbFeat}>
+      <Box className="dbFeat">
         <AccessTimeOutlinedIcon className="light_grey_color" />
         00:00 Hours
       </Box>
       <Button
         variant="contained"
-        className={`${classes.checkInbtn} btn ${
-          location.pathname === "/profile" && classes.checkOutbtn
+        className={`btn inoutBtn ${
+          location.pathname === "/profile" ? "checkOutbtn" : "checkInbtn"
         }`}
         data-testid="CheckInBtn"
       >
@@ -55,19 +53,14 @@ const CheckinCheckoutFeat = () => {
 };
 
 const DashBoard = () => {
-  const classes = useStyles();
-  const { leaveModal, setleaveModal } = useLeaveModal();
+  const {  setleaveModal } = useLeaveModal();
 
   return (
     <Container>
-      <Box className={classes.pagebody}>
-        <Stack className={classes.dbTop}>
+      <Box className="pagebody">
+        <Stack className="dbTop">
           <Box>
-            <Typography
-              variant="h5"
-              fontWeight={900}
-              className={classes.welcomeMsg}
-            >
+            <Typography variant="h5" fontWeight={900} className="welcomeMsg">
               Welcome Vaibhav!
             </Typography>
             <Typography variant="subtitle1">
@@ -76,22 +69,20 @@ const DashBoard = () => {
           </Box>
           <CheckinCheckoutFeat />
         </Stack>
-        <Box className={classes.leaveEventNotify}>
-          <Box className={classes.leaveEvents}>
-            <Box className={classes.eventHour}>
-              <Box className={`${classes.workingHour} ${classes.hourLeave}`}>
+        <Box className="leaveEventNotify">
+          <Box className="leaveEvents">
+            <Box className="eventHour">
+              <Box className="workingHour hourLeave">
                 <Box>
                   <Typography variant="subtitle2">
                     Total Working Hours
                   </Typography>
                   <Typography variant="h5">15 Hours</Typography>
                 </Box>
-                <Typography className={classes.weeklyHour}>
-                  WEEKLY HOURS
-                </Typography>
+                <Typography className="weeklyHour">WEEKLY HOURS</Typography>
               </Box>
-              <Box className={`${classes.emleaves}  ${classes.hourLeave}`}>
-                <Box className={classes.emleavesHead}>
+              <Box className="emleaves hourLeave">
+                <Box className="emleavesHead">
                   <Typography>On Leave</Typography>
                   <Typography
                     variant="subtitle2"
@@ -106,101 +97,77 @@ const DashBoard = () => {
                   variant="square"
                   spacing={1}
                   sx={{ borderRadius: "0" }}
-                  className={classes.avatarGrp}
+                  className="avatarGrp"
                 >
-                  <Avatar className={classes.avatar}></Avatar>
-                  <Avatar className={classes.avatar}></Avatar>
-                  <Box className={`${classes.moreLeave} ${classes.avatar}`}>
-                    +2
-                  </Box>
+                  <Avatar className="avatar"></Avatar>
+                  <Avatar className="avatar"></Avatar>
+                  <Box className="moreLeave avatar">+2</Box>
                 </AvatarGroup>
               </Box>
             </Box>
-            <Box className={classes.upcomingEvents}>
-              <Box className={classes.eachupcomingEvent}>
-                <Typography
-                  variant="h6"
-                  className={`${classes.upcomingDates} fontWeight`}
-                >
+            <Box className="upcomingEvents">
+              <Box className="eachupcomingEvent">
+                <Typography variant="h6" className="upcomingDates fontWeight">
                   Upcoming holiday
                 </Typography>
-                <Box className={classes.eachUpcomingdate}>
-                  <Box className={classes.dayDate}>
-                    <Avatar
-                      className={`${classes.avatar} ${classes.monthAvatar}`}
-                    >
-                      Aug
-                    </Avatar>
+                <Box className="eachUpcomingdate">
+                  <Box className="dayDate">
+                    <Avatar className="avatar monthAvatar">Aug</Avatar>
                     <Box>
-                      <Typography variant="subtitle2" className={`fontWeight`}>
+                      <Typography variant="subtitle2" className="fontWeight">
                         Independence Day
                       </Typography>
                       <Typography
                         variant="subtitle2"
-                        className={`light_grey_color`}
+                        className="light_grey_color"
                       >
                         Tuesday, Aug 15, 2023
                       </Typography>
                     </Box>
                   </Box>
-                  <Typography
-                    variant="subtitle2"
-                    className={`light_grey_color`}
-                  >
+                  <Typography variant="subtitle2" className="light_grey_color">
                     120 days left
                   </Typography>
                 </Box>
               </Box>
-              <Box className={classes.eachupcomingEvent}>
-                <Typography
-                  variant="h6"
-                  className={`${classes.upcomingDates} fontWeight`}
-                >
+              <Box className="eachupcomingEvent">
+                <Typography variant="h6" className="upcomingDates fontWeight">
                   Upcoming Birthdays
                 </Typography>
-                <Box className={classes.eachUpcomingdate}>
-                  <Box className={classes.dayDate}>
-                    <Avatar className={`${classes.avatar}`}></Avatar>
+                <Box className="eachUpcomingdate">
+                  <Box className="dayDate">
+                    <Avatar className="avatar"></Avatar>
                     <Box>
-                      <Typography variant="subtitle2" className={`fontWeight`}>
+                      <Typography variant="subtitle2" className="fontWeight">
                         Neelam Dhami
                       </Typography>
                       <Typography
                         variant="subtitle2"
-                        className={`light_grey_color`}
+                        className="light_grey_color"
                       >
                         April 15
                       </Typography>
                     </Box>
                   </Box>
-                  <Typography
-                    variant="subtitle2"
-                    className={`light_grey_color`}
-                  >
+                  <Typography variant="subtitle2" className="light_grey_color">
                     7 days left
                   </Typography>
                 </Box>
               </Box>
             </Box>
           </Box>
-          <Box className={` ${classes.notificationBox}`}>
-            <Typography
-              variant="h6"
-              className={`${classes.upcomingDates} fontWeight`}
-            >
+          <Box className="notificationBox">
+            <Typography variant="h6" className="upcomingDates fontWeight">
               Notifications
             </Typography>
             <Box>
-              <Box className={classes.dayDate}>
-                <Avatar className={`${classes.avatar}`}></Avatar>
+              <Box className="dayDate">
+                <Avatar className="avatar"></Avatar>
                 <Box>
-                  <Typography variant="subtitle2" className={`fontWeight`}>
+                  <Typography variant="subtitle2" className="fontWeight">
                     Lorem Ipsum
                   </Typography>
-                  <Typography
-                    variant="subtitle2"
-                    className={`light_grey_color`}
-                  >
+                  <Typography variant="subtitle2" className="light_grey_color">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Cumque, i necessitatibus
                   </Typography>
@@ -213,222 +180,5 @@ const DashBoard = () => {
     </Container>
   );
 };
-
-export const useStyles = makeStyles(() => ({
-  dashboardBox: {
-    display: "flex",
-  },
-  navPage: {
-    width: "100%",
-    backgroundColor: "#F5F6FA",
-  },
-  pagebody: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem",
-    padding: "2.5rem",
-  },
-
-  dbFeat: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "5px",
-    alignItems: "center",
-    backgroundColor: "white",
-    height: "4.2rem",
-    padding: "1rem",
-    borderRadius: "5px",
-  },
-  checkInbtn: {
-    width: "14rem",
-    height: "4.2rem",
-  },
-  checkOutbtn: {
-    backgroundColor: "#f45757",
-    "&:hover": {
-      backgroundColor: "#f45757",
-      opacity: 0.9,
-    },
-  },
-  dateTimeCheckBox: {
-    display: "flex",
-    alignItems: "center",
-    gap: "1.2rem",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column-reverse",
-    },
-    [theme.breakpoints.down("lg")]: {
-      gap: "1rem",
-    },
-  },
-  dbTop: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-  },
-  hourLeave: {
-    backgroundColor: "white",
-    padding: "5px",
-    borderRadius: "5px",
-  },
-  workingHour: {
-    display: "flex",
-    alignItems: "center",
-    gap: "1rem",
-    justifyContent: "space-between",
-    width: "fit-content",
-  },
-
-  emleaves: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  },
-  emleavesHead: {
-    display: "flex",
-    gap: "2rem",
-    justifyContent: "space-between",
-  },
-  weeklyHour: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "4.1rem",
-    height: "4.1rem",
-    fontSize: "5px",
-    padding: "1.5rem",
-    borderRadius: "50%",
-    textAlign: "center",
-    background:
-      "radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient( #16C098 15%,  #C4C4C4 0)",
-  },
-  eventHour: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "2.2rem",
-  },
-  moreLeave: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#A29EB6",
-  },
-  avatarGrp: {
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    gap: "9px",
-  },
-  avatar: {
-    borderRadius: "5px",
-    width: "3.6rem",
-    height: "3.6rem",
-  },
-
-  monthAvatar: {
-    fontSize: "12px",
-  },
-  eachUpcomingdate: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  dayDate: {
-    display: "flex",
-    gap: "10px",
-  },
-
-  upcomingEvents: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "5px",
-    justifyContent: "space-between",
-  },
-  eachupcomingEvent: {
-    display: "flex",
-    gap: "0.8rem",
-    flexDirection: "column",
-    padding: "1rem",
-    borderRadius: "5px",
-    backgroundColor: "white",
-  },
-
-  leaveEvents: {
-    display: "flex",
-    gap: "2.2rem",
-    flexDirection: "column",
-  },
-
-  leaveEventNotify: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "2.2rem",
-  },
-
-  notificationBox: {
-    display: "flex",
-    gap: "0.8rem",
-    flexDirection: "column",
-    backgroundColor: "white",
-    padding: "1.5rem",
-    borderRadius: "5px",
-  },
-  [theme.breakpoints.down("md")]: {
-    pagebody: {
-      padding: "1.2rem",
-    },
-    dbFeat: {
-      padding: "3px 1px 3px 1px",
-    },
-    dateTimeCheckBox: {
-      gap: "5px",
-    },
-    hourLeave: {
-      width: "100%",
-    },
-  },
-  [theme.breakpoints.up("md")]: {
-    hourLeave: {
-      width: "32rem",
-      padding: "1.5rem",
-    },
-    weeklyHour: {
-      width: "5rem",
-      height: "5rem",
-      fontSize: "9px",
-      padding: "3rem",
-      borderRadius: "50%",
-      borderWidth: "5px",
-    },
-    avatar: {
-      width: "3.8rem",
-      height: "3.8rem",
-    },
-    upcomingEvents: {
-      flexDirection: "row",
-    },
-    eachupcomingEvent: {
-      width: "32rem",
-      padding: "1.5rem",
-    },
-  },
-  [theme.breakpoints.down("sm")]: {
-    dbFeat: {
-      width: "14rem",
-      height: "4.2rem",
-    },
-    checkInbtn: {
-      width: "14rem",
-      height: "4.2rem",
-    },
-    upcomingDates: {
-      fontSize: "13px",
-    },
-    leaveEventNotify: {
-      flexDirection: "column",
-    },
-  },
-}));
 
 export { DashBoard, CheckinCheckoutFeat };

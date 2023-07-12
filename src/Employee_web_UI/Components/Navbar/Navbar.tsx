@@ -6,17 +6,15 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./Navbar.css";
-import { Box, TextField, Stack, Avatar } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Box, Stack, Avatar } from "@mui/material";
 import { ProfileModal } from "../ProfileModal/ProfileModal";
+import { styled } from "@mui/system";
 
-const useStyles = makeStyles(() => ({
-  textField: {
-    border: "none",
-    height: "50px",
-    width: "28rem",
-  },
-}));
+const MyInput = styled("input")({
+  border: "none",
+  backgroundColor: "transparent",
+  outline: "none",
+});
 
 type NavbarPropsType = {
   showSidebar: boolean;
@@ -25,7 +23,6 @@ type NavbarPropsType = {
 
 const Navbar = ({ showSidebar, setShowSidebar }: NavbarPropsType) => {
   const [profileModal, setProfileModal] = useState<Boolean>(false);
-  const classes = useStyles();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -59,15 +56,10 @@ const Navbar = ({ showSidebar, setShowSidebar }: NavbarPropsType) => {
             spacing={1}
           >
             <SearchOutlinedIcon className="icon" />
-            <TextField
-              sx={{ border: "none", outline: "none" }}
+            <MyInput
               placeholder="Search for employee"
-              InputProps={{
-                classes: {
-                  notchedOutline: classes.textField,
-                },
-              }}
-            ></TextField>
+              className="searchInput"
+            ></MyInput>
           </Stack>
         </Toolbar>
         <Box

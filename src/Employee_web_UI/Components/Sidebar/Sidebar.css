@@ -15,17 +15,6 @@
   z-index: 2;
 }
 
-.avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  color: var(--primary-color);
-  border: 1px solid black;
-}
-
 .profileDiv {
   display: flex;
   gap: 1rem;
