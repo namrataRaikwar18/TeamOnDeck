@@ -5,7 +5,8 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import LaunchOutlinedIcon from "@mui/icons-material/LaunchOutlined";
 import { Box } from "@mui/material";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { PNG } from "../../../Assets";
 
 type SidebarPropsType = {
   showSidebar: boolean;
@@ -13,16 +14,17 @@ type SidebarPropsType = {
 };
 
 const Sidebar = ({ showSidebar, setShowSidebar }: SidebarPropsType) => {
+  const navigate = useNavigate()
   return (
     <Box>
       <div className={`sidebar ${showSidebar ? "showSidebar" : "hideSidebar"}`}>
-        {/* <img
-          className="logo cursorPointer"
-          src="https://tracker.builder.ai/assets/images/trackerLogo.png"
-          alt="logo"
-          onClick={() => navigate("/home")}
-        /> */}
-        <h3 className="logo cursorPointer">Team on Deck</h3>
+        <div onClick={() => navigate("/")} className="logoName cursorPointer">
+          <img
+            src={PNG.todLogo}
+            alt="logo"
+          />
+          <h3>Team on Deck</h3>
+        </div>
         <p className="divider"></p>
         <div className="sidebarMiddlePart">
           <div className="projectDiv">
