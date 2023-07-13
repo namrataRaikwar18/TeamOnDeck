@@ -1,12 +1,17 @@
-.logo {
-  padding: 2.2rem;
+.logoName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 7.5rem;
+  padding: 1.5rem;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--light-divider);
-  width: 20rem;
+  width: 23rem;
   height: 100vh;
   background-color: #fff;
   justify-content: space-between;
@@ -114,6 +119,7 @@
   .sidebar {
     position: absolute;
     top: 70px;
+    width: 20rem;
   }
 
   .showSidebar {
@@ -121,7 +127,7 @@
   }
 
   .hideSidebar,
-  .logo,
+  .logoName,
   .divider {
     display: none;
   }
